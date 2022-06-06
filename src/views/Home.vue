@@ -40,6 +40,36 @@
                 </router-link>
               </li>
             </ul>
+             <ul class="nav nav-pills outline-active">
+              <li v-if="isAuthenticated" class="nav-item">
+                <router-link
+                  :to="{ name: 'home-my-feed' }"
+                  class="nav-link"
+                  active-class="active"
+                >
+                  Your Feed
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link
+                  :to="{ name: 'home' }"
+                  exact
+                  class="nav-link"
+                  active-class="active"
+                >
+                  Global Feed
+                </router-link>
+              </li>
+              <li class="nav-item" v-if="tag">
+                <router-link
+                  :to="{ name: 'home-tag', params: { tag } }"
+                  class="nav-link"
+                  active-class="active"
+                >
+                  <i class="ion-pound"></i> {{ tag }}
+                </router-link>
+              </li>
+            </ul>
           </div>
           <router-view></router-view>
         </div>
